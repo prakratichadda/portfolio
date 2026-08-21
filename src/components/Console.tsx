@@ -1,7 +1,17 @@
+"use client";
+
+import { motion } from "motion/react";
+
 export function Console({ label = "PC" }: { label?: string }) {
   return (
     <div className="mx-auto w-full max-w-[260px] rounded-[16px_16px_34px_34px] border-4 border-black bg-pink p-4 shadow-[6px_6px_0_0_#000]">
-      <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-4 border-black bg-[#0B2D1A]">
+      <motion.div
+        className="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-4 border-black bg-[#0B2D1A]"
+        initial={{ opacity: 1 }}
+        whileInView={{ opacity: [0.15, 1, 0.25, 1, 0.5, 1] }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.35, times: [0, 0.2, 0.35, 0.55, 0.7, 1] }}
+      >
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
@@ -16,7 +26,7 @@ export function Console({ label = "PC" }: { label?: string }) {
         >
           {label}
         </span>
-      </div>
+      </motion.div>
 
       <div className="mt-3.5 flex items-center justify-between">
         <div aria-hidden="true" className="relative size-[34px]">

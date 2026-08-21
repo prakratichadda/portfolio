@@ -6,7 +6,10 @@ import { SectionHead } from "./SectionHead";
 import { PixelPanel, PixelPanelTitle } from "./PixelPanel";
 import { ExchangeHighlight } from "./ExchangeHighlight";
 import { AchievementBadge } from "./AchievementBadge";
+import { AchievementToast } from "./AchievementToast";
 import { inventory, education, type Cert } from "@/lib/data";
+
+const featuredCert = education.topCerts.find((c) => c.featured);
 
 const badgeContainer: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
 const badgeItem: Variants = {
@@ -70,6 +73,7 @@ export function Level04() {
 
         <Reveal delay={0.08} className="mt-7">
           <PixelPanel label="achievements.log" icon="🏆">
+            {featuredCert && <AchievementToast message={featuredCert.label} />}
             <ExchangeHighlight
               title={education.exchange.title}
               subtitle={education.exchange.subtitle}

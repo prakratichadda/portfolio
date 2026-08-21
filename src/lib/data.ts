@@ -20,10 +20,9 @@ export const player = {
       "STATUS: Ready to ship.",
     ],
   },
-  techStack: ["PYTHON", "RAG", "DOCKER", "TENSORFLOW"],
   trainingLog: ["B.Tech CSE", "Bennett University", "2023–2027", "CGPA 8.68/10"],
   specialAbility:
-    "Deterministic logic for anything that must be correct. LLM reasoning only for language and ambiguity. Result: agents that don't hallucinate through finance.",
+    "Deterministic logic where correctness matters. LLM reasoning only for language & ambiguity.",
 };
 
 export const missionBriefing = {

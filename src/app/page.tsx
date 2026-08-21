@@ -1,5 +1,8 @@
 import { Hud } from "@/components/Hud";
 import { Starfield } from "@/components/Starfield";
+import { BootScreen } from "@/components/BootScreen";
+import { PixelCursor } from "@/components/PixelCursor";
+import { LevelMap } from "@/components/LevelMap";
 import { Hero } from "@/components/Hero";
 import { Level01 } from "@/components/Level01";
 import { Level02 } from "@/components/Level02";
@@ -24,8 +27,11 @@ const LOW_GROUND_DECOR = [
 export default function Home() {
   return (
     <>
+      <BootScreen />
+      <PixelCursor />
       <Starfield />
       <Hud />
+      <LevelMap />
       <main>
         <Hero />
         <Level01 />

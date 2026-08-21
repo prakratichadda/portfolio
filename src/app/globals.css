@@ -64,6 +64,12 @@ a {
   outline-offset: 2px;
 }
 
+/* Custom pixel cursor takes over on fine-pointer devices (see PixelCursor.tsx) */
+.pixel-cursor-active,
+.pixel-cursor-active * {
+  cursor: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
