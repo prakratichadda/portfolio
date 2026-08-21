@@ -82,24 +82,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    num: "01 · GENAI",
-    fileName: "variance_agent",
-    title: "FINANCIAL VARIANCE AGENT",
-    desc: "Reads annual reports, explains what changed, and answers questions directly.",
-    detail:
-      "Extraction tool → sandboxed analysis → multi-section prompting → auto-report. Also runs as a chatbot for SAP/finance teams — saving real review time.",
-    stack: ["PYTHON", "CHATBOT"],
-  },
-  {
-    num: "02 · DETERMINISTIC",
-    fileName: "invoice_validator",
-    title: "INVOICE DUPLICATE VALIDATOR",
-    desc: "Four-tier duplicate detector mirroring SAP VIM logic.",
-    detail: "Provably correct, not probably right — pure Python, no model in the loop.",
-    stack: ["PYTHON", "SAP VIM"],
-  },
-  {
-    num: "03 · COMPUTER VISION",
+    num: "01 · COMPUTER VISION",
     fileName: "forgery_detector",
     title: "ART FORGERY DETECTOR",
     desc: "GAN-based forgery detection, cross-architecture evaluation.",
@@ -109,13 +92,23 @@ export const projects: Project[] = [
     link: "https://github.com/jboiie/historic-artwork-forgery-detection",
   },
   {
-    num: "04 · IOT + ML",
+    num: "02 · IOT + ML",
     fileName: "driver_auth",
     title: "ANTI-THEFT CAR SYSTEM",
     desc: "Driver authentication via behavioral anomaly detection.",
     detail: "LightGBM driver-auth module, CAN-bus anomaly detection, AES/TLS-secured comms.",
     stack: ["LIGHTGBM", "YOLO"],
     link: "https://github.com/amankalsi3627/Anti-Theft-Car-System",
+  },
+  {
+    num: "03 · NLP",
+    fileName: "ai_chartered_accountant",
+    title: "AI CHARTERED ACCOUNTANT",
+    desc: "Automates invoice processing and expense categorization.",
+    detail:
+      "End-to-end pipeline with transaction anomaly detection — cut manual data entry time by 30%.",
+    stack: ["FLASK", "NLTK"],
+    link: "https://github.com/prakratichadda/CA",
   },
 ];
 
@@ -141,7 +134,7 @@ export const inventory = [
   },
 ];
 
-export type Cert = { icon: string; label: string; featured?: boolean };
+export type Cert = { icon: string; label: string; href: string; featured?: boolean };
 
 export const education = {
   exchange: {
@@ -150,12 +143,37 @@ export const education = {
     date: "Jun 2025",
   },
   certs: [
-    { icon: "🏅", label: "SmartBU Hackathon — Top 100" },
-    { icon: "🏅", label: "Deloitte Simulation" },
-    { icon: "🏅", label: "IIT Roorkee — Data Science" },
-    { icon: "🏅", label: "IISc — Deep Learning" },
-    { icon: "🏅", label: "IBM — SQL" },
-    { icon: "👑", label: "IIT Madras — LLMs (Top 5%)", featured: true },
+    {
+      icon: "🏅",
+      label: "SmartBU Hackathon — Top 100",
+      href: "https://drive.google.com/file/d/1TMMazllokg5wIrCyX57_3ELjH8QkMx89/view",
+    },
+    {
+      icon: "🏅",
+      label: "Deloitte Simulation",
+      href: "https://drive.google.com/file/d/1wECnaSnuFpzUW4biXnNY1cKnfdfx1YKq/view",
+    },
+    {
+      icon: "🏅",
+      label: "IIT Roorkee — Data Science",
+      href: "https://drive.google.com/file/d/1ai75dLafFl0ZfohL_LcCBLnlopvSjVyK/view",
+    },
+    {
+      icon: "🏅",
+      label: "IISc — Deep Learning",
+      href: "https://drive.google.com/file/d/19clN5z2iEDvWtp75P7GS-TYkt_RjS2Mr/view",
+    },
+    {
+      icon: "🏅",
+      label: "IBM — SQL",
+      href: "https://www.coursera.org/account/accomplishments/certificate/6BO4RWYHDHL5",
+    },
+    {
+      icon: "👑",
+      label: "IIT Madras — LLMs (Top 5%)",
+      href: "https://drive.google.com/file/d/1Eb_g9BBf8ywZ8Il1kcI0ONuxfsYUfINJ/view",
+      featured: true,
+    },
   ] satisfies Cert[],
 };
 
