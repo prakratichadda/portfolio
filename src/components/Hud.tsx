@@ -69,12 +69,18 @@ export function Hud() {
       <span className="whitespace-nowrap text-mint">‹ {levelLabel}</span>
 
       <div className="flex max-w-[120px] flex-1 gap-[3px] sm:max-w-[280px]">
-        {Array.from({ length: SEGMENTS }, (_, i) => (
-          <div
-            key={i}
-            className={`h-3 flex-1 border-2 border-black ${i < filled ? "bg-mint" : "bg-[#2A2A38]"}`}
-          />
-        ))}
+        {Array.from({ length: SEGMENTS }, (_, i) => {
+          const isFilled = i < filled;
+          return (
+            <motion.div
+              key={`${i}-${isFilled}`}
+              initial={isFilled ? { scaleY: 0.7 } : false}
+              animate={{ scaleY: 1 }}
+              transition={{ type: "spring", stiffness: 500, damping: 20 }}
+              className={`h-3 flex-1 border-2 border-black ${isFilled ? "bg-mint" : "bg-[#2A2A38]"}`}
+            />
+          );
+        })}
       </div>
 
       <span className="flex items-center gap-1.5 whitespace-nowrap text-pink">

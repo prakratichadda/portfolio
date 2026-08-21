@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "motion/react";
 import { Reveal } from "./Reveal";
 import { Ground } from "./Ground";
 import { Marquee } from "./Marquee";
@@ -11,6 +14,8 @@ const GROUND_DECOR = [
   { left: "78%", symbol: "☁️" },
   { left: "90%", symbol: "⭐" },
 ];
+
+const powerUpSpring = { type: "spring" as const, stiffness: 300, damping: 15 };
 
 export function Hero() {
   return (
@@ -26,15 +31,32 @@ export function Hero() {
             className="font-pixel text-[clamp(22px,5.4vw,42px)] leading-[1.5]"
             style={{ textShadow: "3px 3px 0 var(--color-pink-dark)" }}
           >
-            <span className="text-mint">{hero.headlineLine1}</span>
-            <br />
-            <span className="text-pink">{hero.headlineLine2}</span>
+            <motion.span
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={powerUpSpring}
+              className="block text-mint"
+            >
+              {hero.headlineLine1}
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ ...powerUpSpring, delay: 0.15 }}
+              className="block text-pink"
+            >
+              {hero.headlineLine2}
+            </motion.span>
           </h1>
           <p className="mx-auto mt-5 max-w-[480px] text-[17px] text-ink-dim">
             {hero.subtext}
           </p>
           <div className="mt-[34px]">
-            <PixelButton href={hero.startHref}>START &gt;</PixelButton>
+            <PixelButton href={hero.startHref} pulse tapScale={0.92}>
+              START &gt;
+            </PixelButton>
           </div>
         </Reveal>
       </div>

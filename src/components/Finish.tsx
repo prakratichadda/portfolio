@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "motion/react";
 import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
 import { Flagpole } from "./Flagpole";
 import { PixelButton } from "./PixelButton";
@@ -7,9 +10,14 @@ export function Finish() {
   return (
     <section id="contact" className="relative z-[1] px-4 pb-10 pt-[100px] text-center sm:px-7">
       <div className="mx-auto max-w-[1040px]">
-        <Reveal>
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
           <Flagpole />
-        </Reveal>
+        </motion.div>
 
         <Reveal delay={0.08}>
           <h2

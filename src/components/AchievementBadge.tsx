@@ -34,12 +34,27 @@ export function AchievementBadge({
       initial={{ boxShadow: restShadow }}
       whileHover={{ x: lift, y: lift, boxShadow: hoverShadow }}
       transition={{ duration: 0.15 }}
-      className={`inline-flex cursor-pointer items-center gap-2 border-2 border-black font-pixel leading-relaxed ${
+      className={`relative inline-flex cursor-pointer items-center gap-2 overflow-hidden border-2 border-black font-pixel leading-relaxed ${
         quiet ? "px-2 py-1.5 text-[7px]" : "px-3 py-2 text-[8px]"
       } ${featured ? "bg-gold text-black" : "bg-white text-black"}`}
     >
-      <span aria-hidden="true">{icon}</span>
-      {label}
+      {featured && (
+        <motion.span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(100deg, transparent 30%, rgba(255,255,255,0.6) 50%, transparent 70%)",
+            backgroundSize: "250% 100%",
+          }}
+          animate={{ backgroundPosition: ["0% 0%", "100% 0%", "0% 0%"] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+        />
+      )}
+      <span aria-hidden="true" className="relative">
+        {icon}
+      </span>
+      <span className="relative">{label}</span>
     </motion.a>
   );
 }

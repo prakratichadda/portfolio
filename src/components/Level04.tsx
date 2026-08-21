@@ -1,9 +1,41 @@
-import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
+"use client";
+
+import { motion, type Variants } from "motion/react";
+import { Reveal } from "./Reveal";
 import { SectionHead } from "./SectionHead";
 import { PixelPanel, PixelPanelTitle } from "./PixelPanel";
 import { ExchangeHighlight } from "./ExchangeHighlight";
 import { AchievementBadge } from "./AchievementBadge";
-import { inventory, education } from "@/lib/data";
+import { inventory, education, type Cert } from "@/lib/data";
+
+const badgeContainer: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
+const badgeItem: Variants = {
+  hidden: { opacity: 0, scale: 0, rotate: -8 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: { type: "spring", stiffness: 300, damping: 15 },
+  },
+};
+
+function BadgeRow({ certs, size }: { certs: Cert[]; size: "lg" | "sm" }) {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={badgeContainer}
+      className="flex flex-wrap gap-3"
+    >
+      {certs.map((cert) => (
+        <motion.div key={cert.label} variants={badgeItem}>
+          <AchievementBadge {...cert} size={size} />
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+}
 
 export function Level04() {
   return (
@@ -48,22 +80,12 @@ export function Level04() {
               <PixelPanelTitle>UNLOCKED ACHIEVEMENTS</PixelPanelTitle>
 
               <div className="mb-2 font-pixel text-[9px] text-pink-dark">TOP ACHIEVEMENTS</div>
-              <StaggerGroup className="mb-5 flex flex-wrap gap-3">
-                {education.topCerts.map((cert) => (
-                  <StaggerItem key={cert.label}>
-                    <AchievementBadge {...cert} size="lg" />
-                  </StaggerItem>
-                ))}
-              </StaggerGroup>
+              <div className="mb-5">
+                <BadgeRow certs={education.topCerts} size="lg" />
+              </div>
 
               <div className="mb-2 font-pixel text-[9px] text-pink-dark">ALSO COMPLETED</div>
-              <StaggerGroup className="flex flex-wrap gap-2">
-                {education.alsoCerts.map((cert) => (
-                  <StaggerItem key={cert.label}>
-                    <AchievementBadge {...cert} size="sm" />
-                  </StaggerItem>
-                ))}
-              </StaggerGroup>
+              <BadgeRow certs={education.alsoCerts} size="sm" />
             </div>
           </PixelPanel>
         </Reveal>

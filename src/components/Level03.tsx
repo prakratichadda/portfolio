@@ -11,12 +11,11 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <StaggerItem>
       <motion.div
-        initial={{ boxShadow: "6px 6px 0 0 var(--color-pink-dark)" }}
-        whileHover={{ x: -3, y: -3, boxShadow: "10px 10px 0 0 var(--color-pink-dark)" }}
-        transition={{ duration: 0.15 }}
+        whileHover={{ scale: 1.02, y: -4 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
         className="h-full"
       >
-        <PixelPanel label={project.fileName} icon="▶" shadow={false} className="h-full">
+        <PixelPanel label={project.fileName} icon="▶" className="h-full">
           <span className="mb-3 inline-block bg-black px-2 py-1 font-pixel text-[9px] text-mint">
             {project.num}
           </span>
@@ -34,7 +33,14 @@ function ProjectCard({ project }: { project: Project }) {
             ))}
           </div>
           {project.link && (
-            <PixelButton href={project.link} target="_blank" rel="noopener" variant="pink" size="sm">
+            <PixelButton
+              href={project.link}
+              target="_blank"
+              rel="noopener"
+              variant="pink"
+              size="sm"
+              tapScale={0.94}
+            >
               VIEW REPO &gt;
             </PixelButton>
           )}
