@@ -3,7 +3,7 @@ import { SectionHead } from "./SectionHead";
 import { PixelPanel, PixelPanelTitle } from "./PixelPanel";
 import { Console } from "./Console";
 import { Badge } from "./Badge";
-import { player } from "@/lib/data";
+import { player, missionBriefing } from "@/lib/data";
 
 export function Level01() {
   return (
@@ -63,6 +63,17 @@ export function Level01() {
               </ul>
             </PixelPanel>
           </div>
+        </Reveal>
+
+        <Reveal delay={0.08} className="mt-[18px]">
+          <PixelPanel label="mission_briefing.txt" icon="📋">
+            <PixelPanelTitle>PROFESSIONAL SUMMARY</PixelPanelTitle>
+            <div className="flex flex-col gap-3">
+              {missionBriefing.paragraphs.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+          </PixelPanel>
         </Reveal>
       </div>
     </section>

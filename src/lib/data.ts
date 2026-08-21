@@ -29,6 +29,13 @@ export const player = {
   ],
 };
 
+export const missionBriefing = {
+  paragraphs: [
+    "B.Tech CSE undergraduate (CGPA 8.68/10, Bennett University) with hands-on experience building and deploying machine learning and generative AI systems in production. Currently building a suite of SAP-connected AI agents at Coreops.ai — combining deep learning (CNNs, GANs, transfer learning), classical ML (LightGBM, anomaly detection), and LLM applications (RAG pipelines, agentic workflows, prompt engineering).",
+    "Comfortable taking a system from experimentation through evaluation to deployment using Python, Docker, and REST APIs — with one consistent principle across every agent shipped: keep deterministic logic deterministic, and scope LLM reasoning to what it's actually good at.",
+  ],
+};
+
 export type QuestStatus = "done" | "active" | "locked";
 
 export const quest = {
@@ -173,6 +180,26 @@ export const education = {
       label: "IIT Madras — LLMs (Top 5%)",
       href: "https://drive.google.com/file/d/1Eb_g9BBf8ywZ8Il1kcI0ONuxfsYUfINJ/view",
       featured: true,
+    },
+    {
+      icon: "🏅",
+      label: "IIT Madras — BI & Analytics",
+      href: "https://drive.google.com/file/d/1GkMYx1q9QS9dj0X_en9dxIvCrW89wRHX/view",
+    },
+    {
+      icon: "🏅",
+      label: "NUS — Big Data & Deep Learning",
+      href: "https://drive.google.com/file/d/1mbFrFobFhDvktBAlqV5vRtC0dWOi2W5t/view",
+    },
+    {
+      icon: "🏅",
+      label: "UC San Diego — Data Structures",
+      href: "https://www.coursera.org/account/accomplishments/certificate/2I6FUXO121V2",
+    },
+    {
+      icon: "🏅",
+      label: "UC San Diego — Combinatorics & Probability",
+      href: "https://www.coursera.org/account/accomplishments/certificate/GBSCYNZN8LCD",
     },
   ] satisfies Cert[],
 };
