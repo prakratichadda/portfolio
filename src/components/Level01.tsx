@@ -51,16 +51,7 @@ export function Level01() {
 
             <PixelPanel label="special_ability" icon="★">
               <PixelPanelTitle>SPECIAL ABILITY</PixelPanelTitle>
-              <ul className="flex flex-col gap-2.5">
-                {player.specialAbility.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <span className="text-pink-dark" aria-hidden="true">
-                      &gt;
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <p>{player.specialAbility}</p>
             </PixelPanel>
           </div>
         </Reveal>

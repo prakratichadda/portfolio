@@ -3,7 +3,19 @@ import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
 import { SectionHead } from "./SectionHead";
 import { PixelPanel, PixelPanelTitle } from "./PixelPanel";
 import { Sym } from "./Sym";
-import { quest, type QuestStatus } from "@/lib/data";
+import { quest, secondQuest, type QuestStatus } from "@/lib/data";
+
+function StarBullet() {
+  return (
+    <span
+      aria-hidden="true"
+      className="absolute left-0 top-0 font-[system-ui,sans-serif] text-gold"
+      style={{ WebkitTextStroke: "1px black", paintOrder: "stroke fill" }}
+    >
+      ★
+    </span>
+  );
+}
 
 const STATUS_COLOR: Record<QuestStatus, string> = {
   done: "text-[#1a7a3d]",
@@ -78,16 +90,31 @@ export function Level02() {
             <ul className="flex flex-col gap-3">
               {quest.objectives.map((obj) => (
                 <li key={obj.text} className="relative pl-[22px] text-[17px] leading-relaxed">
-                  <span
-                    aria-hidden="true"
-                    className="absolute left-0 top-0 font-[system-ui,sans-serif] text-gold"
-                    style={{ WebkitTextStroke: "1px black", paintOrder: "stroke fill" }}
-                  >
-                    ★
-                  </span>
+                  <StarBullet />
                   {obj.emoji && <span aria-hidden="true">{obj.emoji} </span>}
                   {highlight(obj.text, obj.bold)}
                   {obj.impact && <ImpactBox>{obj.impact}</ImpactBox>}
+                </li>
+              ))}
+            </ul>
+          </PixelPanel>
+        </Reveal>
+
+        <Reveal delay={0.08} className="mt-[18px]">
+          <PixelPanel
+            label={`quest_log — ${secondQuest.role} · ${secondQuest.org} · ${secondQuest.date}`}
+            icon={
+              <>
+                <Sym>✔</Sym> COMPLETE
+              </>
+            }
+            bodyClassName="p-6"
+          >
+            <ul className="flex flex-col gap-3">
+              {secondQuest.bullets.map((text) => (
+                <li key={text} className="relative pl-[22px] text-[17px] leading-relaxed">
+                  <StarBullet />
+                  {text}
                 </li>
               ))}
             </ul>

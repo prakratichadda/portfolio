@@ -20,13 +20,10 @@ export const player = {
       "STATUS: Ready to ship.",
     ],
   },
-  techStack: ["PY", "RAG", "DKR", "SQL", "TF", "GAN", "FLASK"],
+  techStack: ["PYTHON", "RAG", "DOCKER", "TENSORFLOW"],
   trainingLog: ["B.Tech CSE", "Bennett University", "2023–2027", "CGPA 8.68/10"],
-  specialAbility: [
-    "Deterministic Python for anything that must be correct (matching, classifying, calculating).",
-    "LLM reasoning only for language, ambiguity & retrieval.",
-    "Result: agents that don't hallucinate through finance.",
-  ],
+  specialAbility:
+    "Deterministic logic for anything that must be correct. LLM reasoning only for language and ambiguity. Result: agents that don't hallucinate through finance.",
 };
 
 export const missionBriefing = {
@@ -74,6 +71,16 @@ export const quest = {
     {
       text: "QA swept the low-code agent builder — found a template undeployable from retired node types.",
     },
+  ],
+};
+
+export const secondQuest = {
+  role: "Intern",
+  org: "Vaco Binary Semantics LLP",
+  date: "Jun–Jul 2024",
+  bullets: [
+    "Designed functional and integration test pipelines for an AI-based Resume Scanner (RAG system) — API-level and end-to-end coverage.",
+    "Logged and tracked defects in JIRA, documenting workflows to support release readiness.",
   ],
 };
 
@@ -149,12 +156,25 @@ export const education = {
     subtitle: "Big Data & Deep Learning — National University of Singapore",
     date: "Jun 2025",
   },
-  certs: [
+  topCerts: [
     {
       icon: "🏅",
       label: "SmartBU Hackathon — Top 100",
       href: "https://drive.google.com/file/d/1TMMazllokg5wIrCyX57_3ELjH8QkMx89/view",
     },
+    {
+      icon: "👑",
+      label: "IIT Madras — LLMs (Top 5%)",
+      href: "https://drive.google.com/file/d/1Eb_g9BBf8ywZ8Il1kcI0ONuxfsYUfINJ/view",
+      featured: true,
+    },
+    {
+      icon: "🏅",
+      label: "IIT Madras — BI & Analytics",
+      href: "https://drive.google.com/file/d/1GkMYx1q9QS9dj0X_en9dxIvCrW89wRHX/view",
+    },
+  ] satisfies Cert[],
+  alsoCerts: [
     {
       icon: "🏅",
       label: "Deloitte Simulation",
@@ -174,17 +194,6 @@ export const education = {
       icon: "🏅",
       label: "IBM — SQL",
       href: "https://www.coursera.org/account/accomplishments/certificate/6BO4RWYHDHL5",
-    },
-    {
-      icon: "👑",
-      label: "IIT Madras — LLMs (Top 5%)",
-      href: "https://drive.google.com/file/d/1Eb_g9BBf8ywZ8Il1kcI0ONuxfsYUfINJ/view",
-      featured: true,
-    },
-    {
-      icon: "🏅",
-      label: "IIT Madras — BI & Analytics",
-      href: "https://drive.google.com/file/d/1GkMYx1q9QS9dj0X_en9dxIvCrW89wRHX/view",
     },
     {
       icon: "🏅",

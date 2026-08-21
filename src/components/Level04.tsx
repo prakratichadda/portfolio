@@ -46,10 +46,21 @@ export function Level04() {
 
             <div className="mt-6">
               <PixelPanelTitle>UNLOCKED ACHIEVEMENTS</PixelPanelTitle>
-              <StaggerGroup className="flex flex-wrap gap-3">
-                {education.certs.map((cert) => (
+
+              <div className="mb-2 font-pixel text-[9px] text-pink-dark">TOP ACHIEVEMENTS</div>
+              <StaggerGroup className="mb-5 flex flex-wrap gap-3">
+                {education.topCerts.map((cert) => (
                   <StaggerItem key={cert.label}>
-                    <AchievementBadge {...cert} />
+                    <AchievementBadge {...cert} size="lg" />
+                  </StaggerItem>
+                ))}
+              </StaggerGroup>
+
+              <div className="mb-2 font-pixel text-[9px] text-pink-dark">ALSO COMPLETED</div>
+              <StaggerGroup className="flex flex-wrap gap-2">
+                {education.alsoCerts.map((cert) => (
+                  <StaggerItem key={cert.label}>
+                    <AchievementBadge {...cert} size="sm" />
                   </StaggerItem>
                 ))}
               </StaggerGroup>
